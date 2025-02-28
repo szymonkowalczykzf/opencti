@@ -1,5 +1,9 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "baseBranches": [
+    "master",
+    "opensearch"
+  ],
   "extends": [
     "config:recommended"
   ],
@@ -15,12 +19,5 @@
       ],
       "prPriority": 5
     }
-  ],
-  "timezone": "Europe/Paris",
-  "schedule": [
-    "after 10pm every weekday",
-    "every weekend",
-    "before 5am every weekday"
-  ],
-  "updateNotScheduled": false
+  ]
 }
