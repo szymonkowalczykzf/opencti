@@ -10,7 +10,7 @@ services:
       timeout: 5s
       retries: 3
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:8.17.2
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.17.3
     volumes:
       - esdata:/usr/share/elasticsearch/data
     environment:
@@ -59,6 +59,9 @@ services:
       - RABBITMQ_DEFAULT_PASS=${RABBITMQ_DEFAULT_PASS}
       - RABBITMQ_NODENAME=rabbit01@localhost
     volumes:
+      - type: bind
+        source: rabbitmq.conf
+        target: /etc/rabbitmq/rabbitmq.conf 
       - amqpdata:/var/lib/rabbitmq
     restart: always
     healthcheck:
